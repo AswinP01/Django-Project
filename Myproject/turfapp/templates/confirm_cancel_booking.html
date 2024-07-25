@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/confirm_cancel_booking.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="cancel_main">
+    <div class="cancel_sub">
+        <h2>Confirm Cancellation</h2>
+        <p>Are you sure you want to cancel the booking on {{ booking.date }} at {{ booking.start_time }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Yes, Cancel Booking</button>
+            <a href="{% url 'booking_history' %}">No, Go Back</a>
+        </form>
+    </div>  
+</div>
+{% endblock %}

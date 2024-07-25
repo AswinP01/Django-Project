@@ -1,0 +1,30 @@
+{% load static %}
+<!-- Navigation -->
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+{% endblock %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class="container ">
+    <a class="navbar-brand" href="{% url 'home' %}"><span><img class="logo1" src="{% static 'images/logo1.png' %}"></span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav d-flex gap-5 ms-auto ">
+        <li class="nav-item active">
+          <a class="nav-link " href="{% url 'home' %}"><h4 class="headitems">Home</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'book_slot' %}"><h4 class="headitems">Book</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'match_list' %}"><h4 class="headitems">Play</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' %}"><h4 class="headitems">Profile</h4></a>
+      </ul>
+    </div>
+  </div>
+</nav>
+

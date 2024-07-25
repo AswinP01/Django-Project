@@ -1,0 +1,9 @@
+.main-content {
+    margin-top: 20px;
+}
+.add-match {
+    margin-bottom: 20px;
+}
+.table td, .table th {
+    vertical-align: middle;
+}

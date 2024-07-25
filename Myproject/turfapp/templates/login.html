@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="login">
+        <form method="post" class="login1">
+            {% csrf_token %}
+            <div class="login2 mt-5">
+                <img class="logolog" src="{% static '/images/logo1.png' %}" alt="">
+                <h4>Log in to Sports Land</h4>
+            </div>
+            <input class="form-control inp" type="text" placeholder="username or email" name="username_or_email" required>
+            <input class="form-control inp" type="password" placeholder="password" name="password" required>
+            <input class="inp inp1" type="submit" value="login" class="logbt">
+        </form>
+        <br>
+        <p>Click here to <span><a class="createacc" href="{% url 'register' %}">Create account</a></span></p>
+        
+    </div>
+    
+{% endblock %}

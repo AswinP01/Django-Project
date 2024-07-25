@@ -1,0 +1,26 @@
+body {
+    background-color: #f8f9fa; /* Light background color for better contrast */
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px;
+}
+
+.card h2 {
+    font-size: 28px;
+    font-family: 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+}
+
+.btn-primary {
+    padding: 10px 20px; /* Adjust padding for a more comfortable button size */
+}
+
+.btn-secondary {
+    padding: 10px 20px; /* Adjust padding for a more comfortable button size */
+}
+
+.text-center {
+    text-align: center;
+}

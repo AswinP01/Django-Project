@@ -1,0 +1,16 @@
+.logo1{
+    height: 40px;
+    width: 100%;
+}
+
+.headitems{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    transition: all 0.3s ease;
+    color: black;
+}
+
+  
+.headitems:hover {
+    color: white;
+    transform: scale(1.1);
+  }

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/match_payment.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="paymain">
+    <div class="paysub">
+        <h1>Payment for {{ match.get_sport_type_display }} Match</h1>
+        <p>Match Date: {{ match.date }}</p>
+        <p>Start Time: {{ match.start_time }}</p>
+        <p>End Time: {{ match.end_time }}</p>
+        <p>Amount: ₹{{ amount }}</p>
+        <form method="post" action="{% url 'match_payment' id=match.id %}">
+            {% csrf_token %}
+            <label for="payment_method">Payment Method:</label>
+            {{ form }}
+            <button class="bt1" type="submit" name="pay" value="COD">Pay and Book Slot</button>
+            <button class="bt2" type="submit" name="cancel">Cancel</button>
+        </form>
+        
+    </div>
+</div>
+{% endblock %}

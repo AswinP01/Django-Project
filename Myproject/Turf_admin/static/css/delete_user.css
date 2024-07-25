@@ -1,0 +1,15 @@
+/* dashboard.css */
+
+/* General form styles */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.btn {
+    margin-top: 10px;
+}

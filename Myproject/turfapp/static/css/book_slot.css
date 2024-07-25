@@ -1,0 +1,30 @@
+.bookmain{
+    width: 100%;
+    min-height: 610px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.bookmain h3{
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.booksub{
+    height: 400px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(141, 192, 141, 0.555);
+    border: 1px transparent;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+.booksub form{
+    width: 80%;
+}

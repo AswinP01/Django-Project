@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/user_detail.css' %}">
+<link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content1 %}
+<main class="container mt-5">
+    <h2 class="mb-5 w-75 text-center ">User Details</h2>
+    
+    <div class="row ms-5">
+        <div class="col-md-4 text-center">
+            <img  src="/sportsland/{{ user.image }}" alt="Profile Picture" class="img-fluid rounded-circle border det" style="width: 150px; height: 150px; object-fit: cover;">
+        </div>
+        <div class="col-md-8">
+            <p><strong>Full Name:</strong> {{ user.full_name }}</p>
+            <p><strong>Username:</strong> {{ user.user.username }}</p>
+            <p><strong>Email:</strong> {{ user.user.email }}</p>
+            <p><strong>Phone Number:</strong> {{ user.phone_no }}</p>
+            <a href="{% url 'user_list' %}" class="btn btn-primary">Back to User List</a>
+        </div>
+    </div>
+</main>
+{% endblock %}

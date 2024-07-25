@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block link %}
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Datepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<!-- Bootstrap Timepicker CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/add_booking.css' %}">
+{% endblock %}
+
+{% block content1 %}
+<div class="container my-5">
+    <h3 class="text-center mb-4">Add Booking</h3>
+    <div class="card p-4 shadow-sm">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Add Booking</button>
+            </div>
+        </form>
+        <div class="text-center mt-3">
+            <a href="{% url 'booking_list_admin' %}" class="btn btn-secondary">Back to Booking List</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<!-- Bootstrap Timepicker JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<script src="{% static '/js/book_slot.js' %}"></script>
+   
+{% endblock %}

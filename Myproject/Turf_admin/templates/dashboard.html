@@ -1,0 +1,203 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content1 %}
+<div class="dash_main">
+    <div class="container">
+        <h1 class="my-4">Admin Dashboard</h1>
+
+        <div class="row dashboard-section">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Users</h5>
+                        <p class="card-text">{{ total_users }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Bookings</h5>
+                        <p class="card-text">{{ total_bookings }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Matches</h5>
+                        <p class="card-text">{{ total_matches }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Revenue</h5>
+                        <p class="card-text">
+                           {{ total_revenue }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Activity Overview -->
+        <div class="row dashboard-section">
+            <div class="col-md-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        User Activity Overview
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            {% for activity in user_activities %}
+                                <li class="list-group-item">{{ activity.username }} - {{ activity.activity_description }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Breakdown -->
+        <div class="row dashboard-section">
+            <div class="col-md-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Revenue Breakdown
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Booking Revenue: {{ total_booking_revenue }}</li>
+                            <li class="list-group-item">Match Revenue: {{ total_match_revenue }}</li>
+                            <li class="list-group-item">Combined Total Revenue: {{ total_revenue }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Matches -->
+        <div class="row dashboard-section">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Upcoming Matches
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            {% for match in upcoming_matches %}
+                                <li class="list-group-item">{{ match.sport_type }} Match on {{ match.date }} from {{ match.start_time }} to {{ match.end_time }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activities -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Recent Activities
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            {% for booking in recent_activities %}
+                                <li class="list-group-item">{{ booking.user.username }} booked a match on {{ booking.date }} from {{ booking.start_time }} to {{ booking.end_time }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New User Registrations -->
+        <div class="row dashboard-section">
+            <div class="col-md-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        New User Registrations
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            {% for user in user_registrations %}
+                                <li class="list-group-item">{{ user.full_name }} joined on {{ user.user.date_joined }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row dashboard-section">
+            <!-- Bookings Chart -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Bookings Trend
+                    </div>
+                    <div class="card-body">
+                        <canvas id="bookingsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Revenue Trend -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Revenue Trend
+                    </div>
+                    <div class="card-body">
+                        <canvas id="revenueChartBookings"></canvas> <!-- Chart for bookings revenue -->
+                        <canvas id="revenueChartMatches"></canvas>  <!-- Chart for matches revenue -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Combined Revenue Trend -->
+        <div class="row dashboard-section">
+            <div class="col-md-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Combined Revenue Trend
+                    </div>
+                    <div class="card-body">
+                        <canvas id="combinedRevenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</div> 
+
+<script id="bookings-data" type="application/json">
+    {{ bookings_chart_data|safe }}
+</script>
+<script id="revenue-data-bookings" type="application/json">
+    {{ revenue_chart_data_bookings|safe }}
+</script>
+<script id="revenue-data-matches" type="application/json">
+    {{ revenue_chart_data_matches|safe }}
+</script>
+<script id="combined-revenue-data" type="application/json">
+    {{ combined_revenue_chart_data|safe }}
+</script>
+
+<script src="{% static 'js/dashboard.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

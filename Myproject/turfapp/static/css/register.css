@@ -1,0 +1,51 @@
+.mainreg{
+    min-height: 710px;
+    width: 100%;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+.subreg h2{
+    font-size: 30px;
+    font-weight: 600;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+.subreg{
+    min-height: 650px;
+    width: 40%;  
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;  
+    border: 1px transparent;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+}
+
+.mainreg form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+      
+}
+
+.mainreg form button{
+    width: 100%;
+    height: 30px;
+    background-color: #3a89ffe7;
+    border: 1px transparent;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+.already{
+    text-align: center;
+    text-decoration: none;
+}
+.already:hover{
+    text-decoration: underline;
+}

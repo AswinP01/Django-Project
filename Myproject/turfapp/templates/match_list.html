@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/match_list.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="match_main">
+    <h1>Available Matches</h1>
+    {% if matches %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Sport Type</th>
+                <th>Players Booked</th>
+                <th>Max Players</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for match in matches %}
+                <tr>
+                    <td>{{ match.date }}</td>
+                    <td>{{ match.start_time }}</td>
+                    <td>{{ match.end_time }}</td>
+                    <td>{{ match.sport_type }}</td>
+                    <td>{{ match.players_booked }}</td>
+                    <td>{{ match.max_players }}</td>
+                    <td>
+                        {% if match.user_has_booked %}
+                            Already Booked
+                        {% else %}
+                            <a href="{% url 'book_match' match.id %}">Book Slot</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No matches available right now. Please check back later.</p>
+    {% endif %}
+
+    <ul>
+        <li> Note: For a match with a maximum of 12 players, the minimum number of players required to conduct the match is 8. If less than 8 players are booked, the match will be canceled and a full refund will be issued.</li>
+        <li>Note: For a match with a maximum of 14 players, the minimum number of players required to conduct the match is 10. If less than 10 players are booked, the match will be canceled and a full refund will be issued.</li>
+    </ul>
+</div>
+    
+{% endblock %}

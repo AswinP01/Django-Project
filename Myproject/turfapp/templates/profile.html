@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-card">
+        <img src="/sportsland/{{pro.image}}" alt="Profile Picture">
+        <h2>{{pro.full_name}}</h2>
+        <p>@{{pro.user.username}}</p>
+        <p>{{pro.email}}</p>
+        <p>Phone: {{pro.phone_no}}</p>
+        <div class="button-group">
+            <a href="{% url 'update' %}"><button>Edit Profile</button></a>
+            <a href="{% url 'booking_history' %}">View Booking History</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+<!-- <div class="profile_main">
+    <div class="profile_sub">
+        <img src="/sportsland/{{pro.image}}" width="120" class="rounded-circle">
+        <p class="text-muted">@{{pro.user.username}}</p>
+        <h5>{{pro.full_name}}</h5>
+        <p>{{pro.email}}</p>
+        <p>Phone: {{pro.phone_no}}</p>
+        <div class="edit_div">
+            <a href="{% url 'update' %}"><button>Edit Profile</button></a>
+        </div>
+        <div class="bookhis_div">
+            <a href="{% url 'booking_history' %}">View Booking History</a>
+        </div>
+        <div class="logout_div">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+</div> -->

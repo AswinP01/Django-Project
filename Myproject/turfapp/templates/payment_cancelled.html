@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-warning" role="alert">
+        <h2>Payment Cancelled</h2>
+        <p>Your payment has been cancelled. No charges have been made.</p>
+        <p>If you still want to book a slot, please return to the booking page.</p>
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'book_slot' %}" class="btn btn-primary">Book Again</a>
+    </div>
+</div>
+{% endblock %}

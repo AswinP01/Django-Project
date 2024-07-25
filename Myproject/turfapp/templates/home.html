@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-content1">
+  <div class="content1">
+    <div class="left">
+      <h3 class="para1">Game on! <br>Secure your spot on the perfect turf</h3>
+      <br>
+      <h5 class="para2">Seamlessly explore our turf and play <br> with sports enthusiasts just like you!</h5>
+    </div>
+    <div class="right">
+      <img src="{% static 'images/3.jpg' %}" class="img1">
+    </div>
+  </div>
+  <div class="content2">
+    <div class="left1">
+      <img src="{% static 'images/4.jpg' %}" class="img2">
+    </div>
+    <div class="right1">
+      <h4 class="para3">Where champions play <br> book your turf today!</h4>
+      <a href="{% url 'book_slot' %}" class="booknowbt">
+        <button class="btn btn-primary">BOOK NOW</button>
+    </a>    
+      <img src="{% static 'images/logo2.png' %}" class="logo2">
+    </div>
+  </div>
+</div>
+
+<div class="main-content2">
+  <div class="content21">
+    <div class="about_left">
+      <div class="abthead1">
+        <p class="text-blk heading">About Us</p>
+      </div>
+      <div class="abthead2">
+        <p class="text-blk subHeading">
+          Welcome to Sportsland, your premier destination for booking top-quality turfs for football and cricket in Kerala. As a dynamic startup, we are dedicated to providing sports enthusiasts with easy access to state-of-the-art facilities for their favorite sports. At Sportsland, we understand the passion and excitement that sports bring into our lives, and we strive to enhance this experience by offering convenient and seamless turf booking services.
+  
+          Founded with a vision to create a thriving sports community, Sportsland is rapidly growing and making its mark across Kerala. <br> <br> Our user-friendly platform allows you to book turfs quickly and efficiently, ensuring that you spend less time planning and more time playing. Whether you are organizing a friendly match, a tournament, or a practice session, Sportsland is here to cater to all your sporting needs.
+  
+          Join us in our journey to foster a vibrant sports culture and make every game memorable. At Sportsland, we believe that every player deserves the best, and we are committed to delivering exceptional service and unmatched quality.
+
+        </p>
+        <p class="text-blk subHeading">Thank you for choosing Sports Land – where your game begins.</p>
+      </div>
+    </div>
+    <div class="about_right">
+      <img src="{% static 'images/6.png' %}" class="img1">
+    </div>
+  </div>
+    
+    
+
+
+  <!-- Our Services Section -->
+  <div class="content31">
+    <div class="container mt-5">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card shadow-sm border-light">
+                  <div class="card-header bg-primary text-white">
+                      <h3 class="mb-0">Our Services</h3>
+                  </div>
+                  <div class="card-body">
+                      <p class="lead">
+                          At Sportsland, we offer a wide range of services to cater to your sporting needs:
+                      </p>
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item">High-quality turf bookings for football, cricket, and badminton</li>
+                          <li class="list-group-item">Online booking and payment system</li>
+                          <li class="list-group-item">Regular maintenance and upkeep of facilities</li>
+                          <li class="list-group-item">Support for organizing tournaments and events</li>
+                          <li class="list-group-item">Exclusive discounts for members</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- Testimonials Section -->
+  <!-- <div class="content4">
+    <div class="block-container">
+      <div class="testimonials-header">
+        <p class="text-blk heading">Testimonials</p>
+      </div>
+      <div class="testimonials-content">
+        <p class="text-blk subHeading">
+          Hear from our happy customers:
+          <blockquote>
+            "Sportsland has the best facilities in Kerala! Booking was a breeze, and the turf was in perfect condition. Highly recommend!" - John D.
+          </blockquote>
+          <blockquote>
+            "Our team had an amazing experience at Sportsland. The staff was very supportive, and the booking process was seamless." - Priya R.
+          </blockquote>
+        </p>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Upcoming Events Section -->
+  <!-- <div class="content5">
+    <div class="block-container">
+      <div class="events-header">
+        <p class="text-blk heading">Upcoming Events</p>
+      </div>
+      <div class="events-content">
+        <p class="text-blk subHeading">
+          Don't miss out on our exciting events:
+          <ul>
+            <li>Football Tournament - August 15, 2024</li>
+            <li>Cricket League - September 10, 2024</li>
+            <li>Badminton Championship - October 20, 2024</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Contact Us Section -->
+  <div class="content61">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow-sm border-light">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">Contact Us</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">
+                            We'd love to hear from you! Reach out to us at:
+                        </p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong>Email:</strong> sportsland2024@gmail.com
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Phone:</strong> +91-1234567890
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Address:</strong> Sportsland, Main Street, Kerala
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

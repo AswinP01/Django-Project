@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/match_full.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="complete_main">
+    <div class="complete_sub">
+        <h1>Match Full</h1>
+        <p>The match on {{ match.date }} from {{ match.start_time }} to {{ match.end_time }} is fully booked.</p>
+        <a href="{% url 'match_list' %}">Back to Match List</a>
+    </div>
+</div>
+{% endblock %}

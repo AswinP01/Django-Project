@@ -1,0 +1,78 @@
+.login{
+    min-height: 610px;
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.login1{
+    width: 30%;
+    height: 400px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+    background-color: rgba(179, 170, 170, 0.185) ;
+}
+.inp{
+    width: 80%;
+}
+.inp1{
+    border: 1px transparent;
+    background-color: seagreen;
+    border-radius: 4px;
+}
+.inp1:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.login2 h4{
+    width: 100%;
+    text-align:center;
+    font-size: 21px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.login2{
+    height: 30%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+    gap: 10px;
+}
+
+.logolog{
+    height: 50px;
+    width: 50%;
+}
+
+
+
+input{
+    width: 70%;    
+}
+
+.logbt{
+ width: 70% ;   
+}
+
+.regbt{
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.575);
+    border-radius: 10px;
+}
+.createacc{
+    text-decoration: none;
+    
+}
+.createacc:hover{
+    text-decoration: underline;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/match_payment.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Payment Successful!</h4>
+        <p>Your payment has been processed successfully. Your booking is confirmed.</p>
+        <hr>
+        <a href="{% url 'match_list' %}" class="btn btn-primary">Back to Match List</a>
+    </div>
+</div>
+{% endblock %}

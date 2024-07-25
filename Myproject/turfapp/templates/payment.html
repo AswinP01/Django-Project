@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static '/css/Payment.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="paymain">
+    <div class="paysub">
+        <h2>Payment</h2>
+        <form method="post" action="{% url 'payment' %}">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            
+            <!-- Display total price as a label -->
+            <div class="form-group">
+                <h5>Total Price: ₹{{ form.total_price.value }}</h5>
+            </div>
+            
+            <!-- Render payment method field with its label -->
+            <div class="form-group">
+                <label for="{{ form.payment_method.id_for_label }}">Payment Method:</label>
+                {{ form.payment_method }}
+            </div>
+
+            <!-- Hidden field for total_price -->
+            {{ form.total_price }}
+        
+            <!-- Submit buttons -->
+            <button class="bt1" type="submit">Proceed to Payment</button>
+            <button class="bt2" type="submit" name="cancel">Cancel</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

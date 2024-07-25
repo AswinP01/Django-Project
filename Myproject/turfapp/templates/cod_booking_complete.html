@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static '/css/booking_complete.css' %}">
+{% endblock%}
+
+{% block content %}
+<div class="complete_main">
+    <div class="complete_sub">
+        <h2>Booking Confirmed (Cash on Delivery)</h2>
+        <p>Your slot booking for Sports Land turf on {{ booking.date }} <br> from {{ booking.start_time }} to {{ booking.end_time }} has been confirmed. Please pay {{ booking.total_price }} in cash when you arrive at the turf.</p>
+        <p>You can cancel your slot in booking history within 1 hour.</p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-danger" role="alert">
+        <h2>Payment Failed</h2>
+        <p>We're sorry, but your payment couldn't be processed at this time.</p>
+    </div>
+
+    {% if booking_data %}
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3>Your Booking Details:</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Date:</strong> {{ booking_data.date }}</li>
+            <li class="list-group-item"><strong>Start Time:</strong> {{ booking_data.start_time }}</li>
+            <li class="list-group-item"><strong>Total Hours:</strong> {{ booking_data.total_hours }}</li>
+            <li class="list-group-item"><strong>Total Price:</strong> {{ booking_data.total_price }}</li>
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="mt-4">
+        <p>Please try again or choose a different payment method.</p>
+        <a href="{% url 'payment' %}" class="btn btn-primary">Try Payment Again</a>
+        <a href="{% url 'book_slot' %}" class="btn btn-secondary">Book a Different Slot</a>
+    </div>
+</div>
+{% endblock %}

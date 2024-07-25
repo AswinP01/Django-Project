@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/booking_success.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="complete_main">
+    <div class="complete_sub">
+        <h1>Booking Successful</h1>
+        <p>Your slot has been successfully booked.</p>
+        <p>
+            {% if match.max_players == 12 %}
+                Note: The minimum number of players required to conduct the match is 8. If less than 8 players are booked, the match will be canceled and a full refund will be issued.
+            {% elif match.max_players == 14 %}
+                Note: The minimum number of players required to conduct the match is 10. If less than 10 players are booked, the match will be canceled and a full refund will be issued.
+            {% endif %}
+        </p>
+        
+        <a class="backmatch" href="{% url 'match_list' %}">Back to Match List</a>
+    </div>
+</div>
+{% endblock %}

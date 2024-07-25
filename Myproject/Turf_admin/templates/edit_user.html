@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/edit_user.css' %}">
+<link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content1 %}
+<main class="container mt-5">
+    <h2 class="mb-4">Edit User Details</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+    
+    <a href="{% url 'user_list' %}" class="btn btn-secondary mt-3">Back to User List</a>
+</main>
+{% endblock %}

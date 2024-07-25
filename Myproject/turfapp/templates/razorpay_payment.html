@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "{{ razorpay_key }}",
+    "amount": "{{ amount }}",
+    "currency": "{{ currency }}",
+    "name": "Turf Booking",
+    "description": "Booking for {{ booking_data.date }} from {{ booking_data.start_time }} to {{ booking_data.end_time }}",
+    "order_id": "{{ order_id }}",
+    "handler": function (response){
+        document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
+        document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
+        document.getElementById('razorpay_signature').value = response.razorpay_signature;
+        document.getElementById('razorpay-form').submit();
+    },
+    "modal": {
+        "ondismiss": function(){
+            window.location.href = "{% url 'payment_cancelled' %}";
+        }
+    },
+
+    "prefill": {
+        "name": "{{ request.user.get_full_name }}",
+        "email": "{{ request.user.email }}"
+    },
+    "theme": {
+        "color": "#F37254"
+    }
+};
+var rzp1 = new Razorpay(options);
+
+rzp1.on('payment.failed', function (response){
+    alert(response.error.description);
+    window.location.href = "{% url 'payment_failed' %}";
+});
+
+rzp1.open();
+
+
+</script>
+
+<form style="width: 100%;height: 150vh;" action="{% url 'razorpay_callback' %}" method="POST" id="razorpay-form">
+    {% csrf_token %}
+    <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+    <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+    <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+</form>
+{% endblock %}
