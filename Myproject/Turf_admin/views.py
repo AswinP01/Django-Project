@@ -35,6 +35,7 @@ def admin_dashboard(request):
     upcoming_matches = Match.objects.filter(date__gte=timezone.now()).order_by('date')[:5]
 
     recent_activities = Booking.objects.order_by('-booking_time')[:10]
+    match_bookings = MatchBooking.objects.all()[:10]
     user_registrations = Profile.objects.order_by('-user__date_joined')[:10]
     
     today = timezone.now().date()
@@ -91,6 +92,7 @@ def admin_dashboard(request):
         'total_revenue': total_revenue,
         'upcoming_matches': upcoming_matches,
         'recent_activities': recent_activities,
+        'match_bookings' : match_bookings,
         'user_registrations': user_registrations,
         'bookings_chart_data': json.dumps(bookings_chart_data),
         'revenue_chart_data_bookings': json.dumps(revenue_chart_data_bookings),
