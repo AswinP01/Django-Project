@@ -113,7 +113,7 @@ class BookingForm(forms.ModelForm):
 class PaymentForm(forms.Form):
     PAYMENT_CHOICES = [
         ('razorpay', 'Pay Online (Razorpay)'),
-        ('cod', 'Cash on Delivery (COD)')
+        ('cod', 'Pay on Arrival')
     ]
     payment_method = forms.ChoiceField(
         choices=PAYMENT_CHOICES,
